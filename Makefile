@@ -1,3 +1,9 @@
+##
+## COMPLOT PROJECT
+## AUTHOR:
+## Zacharie ABIDAT
+##
+
 NAME	 = complot
 
 IDIR	 = include/
@@ -8,7 +14,7 @@ CFLAGS	+= -I $(IDIR) -I $(IDIR_MY)
 CFLAGS	+= -Wall -Wextra -W
 
 SRCS_DIR	= sources/
-SRCS_FILES	= main.cpp Thread.cpp Core.cpp
+SRCS_FILES	= main.cpp Thread.cpp Core.cpp Player.cpp
 
 SRCS     = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 

@@ -8,23 +8,26 @@
 
 Core::Core()
 {
-    app = new sf::RenderWindow(sf::VideoMode(800, 600, 32), "Complot Game");
+    this->app = new sf::RenderWindow(sf::VideoMode(1920, 1080, 32), "Complot Game");
+    this->menu = new Menu(this->app);
 }
 
 Core::~Core()
 {
-    app->clear();
-    app->display();
+    this->app->clear();
+    this->app->display();
 }
 
 int Core::loop()
 {
-    while (app->isOpen()) {
+    while (this->app->isOpen()) {
         sf::Event event;
-        while (app->pollEvent(event)) {
+        while (this->app->pollEvent(event)) {
             if (event.type == sf::Event::Closed)
-                app->close();
+                this->app->close();
         }
+        this->menu->draw();
+        this->app->display();
     }
     return (0);
 }

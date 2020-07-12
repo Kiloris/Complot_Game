@@ -10,6 +10,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "Thread.hpp"
+#include "Menu.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics/Font.hpp>
@@ -22,6 +23,7 @@ class Core {
     protected:
     private:
         sf::RenderWindow *app;
+        Menu *menu;
 };
 
 #endif /* !CORE_HPP_ */

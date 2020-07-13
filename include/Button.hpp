@@ -11,7 +11,7 @@
 
 class Button {
     public:
-        Button(char *, sf::Vector2f, sf::RenderWindow *);
+        Button(const char *, sf::Vector2f, sf::RenderWindow *);
         ~Button();
         void draw();
         bool is_clicked();

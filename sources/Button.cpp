@@ -6,7 +6,7 @@
 
 #include "../include/Button.hpp"
 
-Button::Button(char *path, sf::Vector2f pos, sf::RenderWindow *app)
+Button::Button(const char *path, sf::Vector2f pos, sf::RenderWindow *app)
 {
     this->app = app;
     if (!this->texture.loadFromFile(path))

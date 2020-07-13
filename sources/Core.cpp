@@ -20,11 +20,14 @@ Core::~Core()
 
 int Core::loop()
 {
+    sf::Event event;
+
     while (this->app->isOpen()) {
-        sf::Event event;
         while (this->app->pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 this->app->close();
+            if (event.type == sf::Event::MouseButtonPressed)
+                this->menu->event();
         }
         this->menu->draw();
         this->app->display();

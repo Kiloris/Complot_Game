@@ -11,6 +11,9 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics/Font.hpp>
 #include "Button.hpp"
+#include "Square.hpp"
+#include <iostream>
+#include <cstdlib>
 
 class Menu {
     public:
@@ -26,6 +29,11 @@ class Menu {
         Button *play_button;
         Button *settings_button;
         Button *exit_button;
+        Button *low_sound_button;
+        Button *high_sound_button;
+        Button *menu_button;
+        std::vector<Square *> list_square;
+        bool settings;
 };
 
 #endif /* !MENU_HPP_ */

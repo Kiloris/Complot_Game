@@ -26,6 +26,8 @@ class Menu {
         void clicked_menu();
         void pressed_settings();
         void pressed_menu();
+        bool get_verif();
+        void set_verif(bool);
     protected:
     private:
         sf::RenderWindow *app;
@@ -39,6 +41,7 @@ class Menu {
         Button *menu_button;
         std::vector<Square *> list_square;
         bool settings;
+        bool verif;
 };
 
 #endif /* !MENU_HPP_ */

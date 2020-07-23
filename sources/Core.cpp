@@ -28,11 +28,14 @@ int Core::loop()
         while (this->app->pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 this->app->close();
-            if (event.type == sf::Event::MouseButtonPressed)
-                this->menu->event_clicked();
-            this->menu->event_pressed();
+            if (this->menu->get_verif() == true) {
+                if (event.type == sf::Event::MouseButtonPressed)
+                    this->menu->event_clicked();
+                this->menu->event_pressed();
+            }
         }
-        this->menu->draw();
+        if (this->menu->get_verif() == true)
+            this->menu->draw();
         this->app->display();
     }
     return (0);

@@ -10,6 +10,7 @@ Menu::Menu(sf::RenderWindow *app)
 {
     this->app = app;
     this->settings = false;
+    this->verif = true;
     if (!this->bg_texture.loadFromFile("resources/img/background/menu.jpg"))
         exit(84);
     this->bg_sprite.setTexture(this->bg_texture);
@@ -31,6 +32,16 @@ Menu::Menu(sf::RenderWindow *app)
 Menu::~Menu()
 {
 
+}
+
+bool Menu::get_verif()
+{
+    return this->verif;
+}
+
+void Menu::set_verif(bool verif)
+{
+    this->verif = verif;
 }
 
 void Menu::draw()
@@ -101,7 +112,7 @@ void Menu::pressed_settings()
 void Menu::clicked_menu()
 {
     if (this->play_button->is_clicked() == true)
-        return;
+        this->set_verif(false);
     if (this->settings_button->is_clicked() == true)
         this->settings = true;
     if (this->exit_button->is_clicked() == true)

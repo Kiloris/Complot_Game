@@ -20,9 +20,12 @@ class Menu {
         Menu(sf::RenderWindow *);
         ~Menu();
         void draw();
-        void event();
+        void event_clicked();
+        void event_pressed();
         void clicked_settings();
         void clicked_menu();
+        void pressed_settings();
+        void pressed_menu();
     protected:
     private:
         sf::RenderWindow *app;

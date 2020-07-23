@@ -8,6 +8,8 @@
 
 Core::Core()
 {
+    // std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
+    // this->app = new sf::RenderWindow(modes[0], "Complot Game", sf::Style::Fullscreen);
     this->app = new sf::RenderWindow(sf::VideoMode(1920, 1080, 32), "Complot Game");
     this->menu = new Menu(this->app);
 }

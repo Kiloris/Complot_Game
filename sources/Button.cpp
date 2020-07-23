@@ -12,6 +12,7 @@ Button::Button(const char *path, sf::Vector2f pos, sf::RenderWindow *app)
     if (!this->texture.loadFromFile(path))
         exit(84);
     this->sprite.setTexture(this->texture);
+    pos.x = pos.x - this->sprite.getGlobalBounds().width / 2;
     this->sprite.setPosition(pos);
 }
 

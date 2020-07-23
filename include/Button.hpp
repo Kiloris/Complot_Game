@@ -8,15 +8,20 @@
 #define BUTTON_HPP_
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <string>
 
 class Button {
     public:
-        Button(const char *, sf::Vector2f, sf::RenderWindow *);
+        Button(std::string, sf::Vector2f, sf::RenderWindow *);
         ~Button();
         void draw();
         bool is_clicked();
+        void pressed();
+        void original();
     protected:
     private:
+        std::string name;
         sf::RenderWindow *app;
         sf::Texture texture;
         sf::Sprite sprite;

@@ -6,9 +6,12 @@
 
 #include "../include/Button.hpp"
 
-Button::Button(const char *path, sf::Vector2f pos, sf::RenderWindow *app)
+Button::Button(std::string name, sf::Vector2f pos, sf::RenderWindow *app)
 {
     this->app = app;
+    this->name = name;
+    std::string path = "resources/img/button/original/";
+    path.append(this->name);
     if (!this->texture.loadFromFile(path))
         exit(84);
     this->sprite.setTexture(this->texture);
@@ -24,6 +27,25 @@ Button::~Button()
 void Button::draw()
 {
     this->app->draw(this->sprite);
+}
+
+void Button::pressed()
+{
+    std::string path = "resources/img/button/pressed/";
+    path.append(this->name);
+    if (!this->texture.loadFromFile(path))
+        exit(84);
+    this->sprite.setTexture(this->texture);
+}
+
+
+void Button::original()
+{
+    std::string path = "resources/img/button/original/";
+    path.append(this->name);
+    if (!this->texture.loadFromFile(path))
+        exit(84);
+    this->sprite.setTexture(this->texture);
 }
 
 bool Button::is_clicked()

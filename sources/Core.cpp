@@ -29,7 +29,8 @@ int Core::loop()
             if (event.type == sf::Event::Closed)
                 this->app->close();
             if (event.type == sf::Event::MouseButtonPressed)
-                this->menu->event();
+                this->menu->event_clicked();
+            this->menu->event_pressed();
         }
         this->menu->draw();
         this->app->display();

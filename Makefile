@@ -14,7 +14,7 @@ CFLAGS	+= -I $(IDIR) -I $(IDIR_MY)
 CFLAGS	+= -Wall -Wextra -W
 
 SRCS_DIR	= sources/
-SRCS_FILES	= main.cpp Thread.cpp Core.cpp Player.cpp Menu.cpp Button.cpp
+SRCS_FILES	= main.cpp Thread.cpp Core.cpp Player.cpp Menu.cpp Button.cpp Square.cpp
 
 SRCS     = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 

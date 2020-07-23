@@ -21,6 +21,8 @@ class Menu {
         ~Menu();
         void draw();
         void event();
+        void clicked_settings();
+        void clicked_menu();
     protected:
     private:
         sf::RenderWindow *app;

@@ -53,39 +53,48 @@ void Menu::draw()
 void Menu::event()
 {
     if (this->settings == false) {
-        if (this->play_button->is_clicked() == true) {
-        
-        }
-        if (this->settings_button->is_clicked() == true)
-            this->settings = true;
-        if (this->exit_button->is_clicked() == true)
-            exit(84);
+        this->clicked_menu();
     }
     else {
-        if (this->menu_button->is_clicked() == true)
-            this->settings = false;
-        if (this->low_sound_button->is_clicked() == true) {
-            std::cout << "LOWW" << std::endl;
-            for (int i = 0; i != 5; i++) {
-                if (this->list_square[i]->get_verif() == true && i+1 != 5) {
-                    if (this->list_square[i + 1]->get_verif() != true) {
-                        this->list_square[i]->change_to_black();
-                        break;
-                    }
-                }
-                else if (this->list_square[i]->get_verif() == true && i+1 == 5) {
+        this->clicked_settings();
+    }
+}
+
+void Menu::clicked_menu()
+{
+    if (this->play_button->is_clicked() == true)
+        return;
+    if (this->settings_button->is_clicked() == true)
+        this->settings = true;
+    if (this->exit_button->is_clicked() == true)
+        exit(84);
+}
+
+void Menu::clicked_settings()
+{
+    if (this->menu_button->is_clicked() == true)
+        this->settings = false;
+    if (this->low_sound_button->is_clicked() == true) {
+        std::cout << "LOWW" << std::endl;
+        for (int i = 0; i != 5; i++) {
+            if (this->list_square[i]->get_verif() == true && i+1 != 5) {
+                if (this->list_square[i + 1]->get_verif() != true) {
                     this->list_square[i]->change_to_black();
                     break;
                 }
             }
+            else if (this->list_square[i]->get_verif() == true && i+1 == 5) {
+                this->list_square[i]->change_to_black();
+                break;
+            }
         }
-        if (this->high_sound_button->is_clicked() == true) {
-            std::cout << "HIGH" << std::endl;
-            for (int i = 0; i != 5; i++) {
-                if (this->list_square[i]->get_verif() == false) {
-                    this->list_square[i]->change_to_white();
-                    break;
-                }
+    }
+    if (this->high_sound_button->is_clicked() == true) {
+        std::cout << "HIGH" << std::endl;
+        for (int i = 0; i != 5; i++) {
+            if (this->list_square[i]->get_verif() == false) {
+                this->list_square[i]->change_to_white();
+                break;
             }
         }
     }

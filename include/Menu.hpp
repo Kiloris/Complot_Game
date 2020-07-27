@@ -34,6 +34,7 @@ class Menu {
         sf::Texture bg_texture;
         sf::Sprite bg_sprite;
         Button *play_button;
+        Button *multi_button;
         Button *settings_button;
         Button *exit_button;
         Button *low_sound_button;

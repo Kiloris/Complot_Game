@@ -14,9 +14,10 @@ Menu::Menu(sf::RenderWindow *app)
     if (!this->bg_texture.loadFromFile("resources/img/background/menu.jpg"))
         exit(84);
     this->bg_sprite.setTexture(this->bg_texture);
-    this->play_button = new Button("play.png", sf::Vector2f(this->app->getSize().x / 2, 350), this->app);
-    this->settings_button = new Button("settings.png", sf::Vector2f(this->app->getSize().x / 2, 550), this->app);
-    this->exit_button = new Button("exit.png", sf::Vector2f(this->app->getSize().x / 2, 750), this->app);
+    this->play_button = new Button("play.png", sf::Vector2f(this->app->getSize().x / 2, 250), this->app);
+    this->multi_button = new Button("multiplayer.png", sf::Vector2f(this->app->getSize().x / 2, 450), this->app);
+    this->settings_button = new Button("settings.png", sf::Vector2f(this->app->getSize().x / 2, 650), this->app);
+    this->exit_button = new Button("exit.png", sf::Vector2f(this->app->getSize().x / 2, 850), this->app);
     this->low_sound_button = new Button("arrows_left.png", sf::Vector2f(this->app->getSize().x / 3, 200), this->app);
     this->high_sound_button = new Button("arrows_right.png", sf::Vector2f(this->app->getSize().x /1.5, 200), this->app);
     this->menu_button = new Button("menu.png", sf::Vector2f(this->app->getSize().x / 2, 750), this->app);
@@ -49,6 +50,7 @@ void Menu::draw()
     this->app->draw(this->bg_sprite);
     if (this->settings == false) {
         this->play_button->draw();
+        this->multi_button->draw();
         this->settings_button->draw();
         this->exit_button->draw();
     }
@@ -83,6 +85,10 @@ void Menu::pressed_menu()
         this->play_button->pressed();
     else
         this->play_button->original();
+    if (this->multi_button->is_clicked() == true)
+        this->multi_button->pressed();
+    else
+        this->multi_button->original();
     if (this->settings_button->is_clicked() == true)
         this->settings_button->pressed();
     else
@@ -112,6 +118,8 @@ void Menu::pressed_settings()
 void Menu::clicked_menu()
 {
     if (this->play_button->is_clicked() == true)
+        this->set_verif(false);
+    if (this->multi_button->is_clicked() == true)
         this->set_verif(false);
     if (this->settings_button->is_clicked() == true)
         this->settings = true;
